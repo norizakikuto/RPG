@@ -1,10 +1,9 @@
 package extend;
 public class Dragon extends Monster{
 	 public Dragon(String name,int hp,int offensive) {
-		super(name, hp, offensive);
-		name = "勇者";
-		hp = 200;
-		offensive = 20;
+		this.name = name;
+		this.offensive = offensive;
+		this.hp = hp;
 	 }
 	 @Override 
 	 public void attack(Living target) {

@@ -2,10 +2,9 @@ package extend;
 
 public class Brave extends Human{
 	public Brave(String name, int hp, int offensive) {
-		super(name, hp, offensive);
-		name = "勇者";
-		hp = 200;
-		offensive = 20;
+		this.name = name;
+		this.offensive = offensive;
+		this.hp = hp;
 	}	
 	@Override
 	public void attack(Living target) {

@@ -2,10 +2,9 @@ package extend;
 
 public class Wizard extends Human{
 	public Wizard(String name, int hp, int offensive) {
-		super(name, hp, offensive);
-		name = "魔法使い";
-		hp = 200;
-		offensive = 20;
+		this.name = name;
+		this.offensive = offensive;
+		this.hp = hp;
 	}
 	@Override
 	public void attack(Living target) {

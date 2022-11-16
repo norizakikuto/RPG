@@ -3,8 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class main {
+public class Main {
 	public static void main(String[] args) {
+		
 		
 		List<Human> human =new ArrayList<>();
 		human.add(new Brave ("勇者", 200, 20));
@@ -16,35 +17,50 @@ public class main {
 		monster.add(new Oak("オーク",200,20));
 		monster.add(new Slime("スライム",200,20));
 		
+		int tar;
+		int att;
+		Human h;
+		Monster m;
+		int lih;
+		int lim;
 		while(!human.isEmpty() || !monster.isEmpty()){
 			System.out.println("人間のターン！");
-			int tar =Rand.get(3);
-			Human h =human.get(tar);
-			int att = Rand.get(3);
-			Monster m =monster.get(att);
+			lih = human.size();
+			tar = Rand.get(lih);
+			h = human.get(tar);
+			lim = monster.size();
+			att = Rand.get(lim);
+			m = monster.get(att);
 			h.attack(m);
 			
 			if(m.hp <= 0) {
-				monster.remove(m);
 				System.out.println(m.name +"が倒れた");
+				monster.remove(m);
+			}
+			if(monster.isEmpty()) {
+				break;
 			}
 			
 			System.out.println("モンスターのターン！");
-			tar =Rand.get(3);
-			m =monster.get(tar);
-			att = Rand.get(3);
-			h =human.get(att);
+			lim = monster.size();
+			tar = Rand.get(lim);
+			m = monster.get(tar);
+			lih = human.size();
+			att = Rand.get(lih);
+			h = human.get(att);
 			m.attack(h);
 			
 			if(h.hp <= 0) {
-				human.remove(h);
 				System.out.println(h.name +"が倒れた");
+				human.remove(h);
 			}
-			
+			if(human.isEmpty()) {
+				break;
+			}
 		
 		}
 		
-		if(human.isEmpty()) {
+		if(monster.isEmpty()) {
 			System.out.println("勇者たちは勝利した");
 		}else {
 			System.out.println("勇者たちは敗北した");

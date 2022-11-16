@@ -2,10 +2,9 @@ package extend;
 
 public class Slime extends Monster{
 	public Slime(String name, int hp, int offensive) {
-		super(name, hp, offensive);
-		name = "スライム";
-		hp = 200;
-		offensive = 20;
+		this.name = name;
+		this.offensive = offensive;
+		this.hp = hp;
 	}
 	@Override
 	public void attack(Living target) {
